@@ -91,6 +91,7 @@ def send_notifications(
     send: bool = False,
     yes: bool = False,
     invitation: str | None = None,
+    signature: str | None = None,
     reply_to: str | None = None,
     message_template: str | None = None,
     cc: Sequence[str] = (),
@@ -115,6 +116,7 @@ def send_notifications(
                 list(dict.fromkeys([recipient, *cc_recipients])),
                 message,
                 invitation=invitation,
+                signature=signature,
                 replyTo=reply_to,
             )
         else:

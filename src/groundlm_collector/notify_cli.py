@@ -47,6 +47,10 @@ def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         "--invitation",
         help="Use OpenReview post_message with this message invitation",
     )
+    parser.add_argument(
+        "--signature",
+        help="OpenReview group ID signing the message, usually the workshop group",
+    )
     parser.add_argument("--reply-to")
     parser.add_argument(
         "--cc",
@@ -108,6 +112,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         send=args.send,
         yes=args.yes,
         invitation=args.invitation,
+        signature=args.signature,
         reply_to=args.reply_to,
         cc=args.cc,
         log_path=args.log,

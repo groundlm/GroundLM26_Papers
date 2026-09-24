@@ -75,8 +75,10 @@ Thank you,
 GroundLM 2026 Workshop Organizers
 """
     selected = template if template is not None else default_template
-    return selected.format(
-        greeting=greeting,
-        papers=paper_lines,
-        repo_url=repo_url,
+    # Replace only our documented placeholders.  Using ``str.format`` here
+    # would interpret BibTeX/LaTeX braces in an author's custom message.
+    return (
+        selected.replace("{greeting}", greeting)
+        .replace("{papers}", paper_lines)
+        .replace("{repo_url}", repo_url)
     )

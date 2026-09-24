@@ -84,6 +84,10 @@ small{{color:#555}}</style></head><body>
 <label>Repository URL</label><input name='repo_url' value='{val("repo_url", DEFAULT_REPO_URL)}'>
 <label>CC</label><input name='cc' value='{val("cc")}' placeholder='your-openreview-email@example.com'>
 <small>OpenReview has no native CC field; CC entries are added as additional recipients of each message.</small>
+<label>OpenReview message invitation</label><input name='invitation' value='{val("invitation")}' placeholder='VenueID/-/Message'>
+<small>Required for sending through the current OpenReview API. The invitation must authorize organizer messages.</small>
+<label>OpenReview signature</label><input name='signature' value='{val("signature")}' placeholder='EMNLP/2026/Workshop/GroundLM'>
+<small>Usually the workshop group ID that owns the Message invitation.</small>
 <label>Message template</label><small>Available placeholders: {{greeting}}, {{papers}}, {{repo_url}}</small>
 <textarea name='template'>{val("template", DEFAULT_TEMPLATE)}</textarea>
 <div class='warning'>Sending is irreversible. First use “Preview”. Only the separate confirmation button sends messages.</div>
@@ -127,13 +131,33 @@ class Handler(BaseHTTPRequestHandler):
         subject = data.get("subject", DEFAULT_SUBJECT)
         repo_url = data.get("repo_url", DEFAULT_REPO_URL)
         cc = [item.strip() for item in data.get("cc", "").split(",") if item.strip()]
+        invitation = data.get("invitation", "").strip()
+        signature = data.get("signature", "").strip()
         preview = render_message(papers[:1], repo_url=repo_url, template=template)
         action = data.get("action")
         if action == "send":
+            if not invitation:
+                raise ValueError(
+                    "An OpenReview message invitation is required for sending. "
+                    "Use Preview first, then enter the organizer message invitation."
+                )
+            if "/Reviewers" in invitation or "/Area_Chairs" in invitation:
+                raise ValueError(
+                    "Do not use a Reviewers or Area_Chairs invitation. "
+                    "Use the matching submission invitation ending in '/-/Message'."
+                )
+            if not signature:
+                raise ValueError(
+                    "An OpenReview signature is required for sending. "
+                    "Use the workshop group ID, for example "
+                    "EMNLP/2026/Workshop/GroundLM_Shared_Tasks."
+                )
             result = send_notifications(
                 client, papers, subject=subject, repo_url=repo_url,
                 message_template=template, send=True, yes=True,
                 cc=cc,
+                invitation=invitation,
+                signature=signature or None,
                 log_path=self.server.log_path,
             )
             return f"<div class='result'>Sent {result.sent} message(s) to {result.planned} recipient(s).</div>"
