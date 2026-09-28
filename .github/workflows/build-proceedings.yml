@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -85,6 +85,40 @@ jobs:
             -C aclpub-prep output
           ls -lh aclpub-prep/groundlm-proceedings.tgz
 
+      - name: Publish package as a GitHub Release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="proceedings-${GITHUB_RUN_ID}"
+          gh release create "$tag" aclpub-prep/groundlm-proceedings.tgz \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "GroundLM proceedings build ${GITHUB_RUN_NUMBER}" \
+            --notes "Generated from commit ${GITHUB_SHA}. Paper 008 is excluded from the proceedings."
+          echo "RELEASE_TAG=$tag" >> "$GITHUB_ENV"
+
+      - name: Commit latest build manifest to main
+        run: |
+          sha256sum aclpub-prep/groundlm-proceedings.tgz > /tmp/groundlm-proceedings.sha256
+          {
+            echo "# Latest GroundLM proceedings build"
+            echo
+            echo "- Workflow run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo "- Release: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}"
+            echo "- Source commit: ${GITHUB_SHA}"
+            echo "- Package: groundlm-proceedings.tgz"
+            echo "- SHA256: $(cut -d ' ' -f 1 /tmp/groundlm-proceedings.sha256)"
+            echo "- Paper 008: excluded"
+          } > aclpub-prep/latest-build.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add aclpub-prep/latest-build.md
+          if git diff --cached --quiet; then
+            echo "Build manifest is unchanged."
+          else
+            git commit -m "Record proceedings build ${GITHUB_RUN_NUMBER}"
+            git push origin HEAD:main
+          fi
+
       - name: Save generated proceedings as artifact
         uses: actions/upload-artifact@v4
         with:
@@ -102,5 +136,7 @@ jobs:
             echo
             echo "The generated package and the complete aclpub2 output were saved as the artifact \`groundlm-proceedings-${{ github.run_number }}\`."
             echo
-            echo "Open the workflow run page and download that artifact. The package is \`aclpub-prep/groundlm-proceedings.tgz\`."
+            echo "A durable copy is also attached to the GitHub Release created by this run; its link is recorded in \`aclpub-prep/latest-build.md\`."
+            echo
+            echo "The package is \`aclpub-prep/groundlm-proceedings.tgz\`."
           } >> "$GITHUB_STEP_SUMMARY"
