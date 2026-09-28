@@ -1,0 +1,14 @@
+- title: 'Panel Discussion: Open Challenges in Grounding'
+  date: Thu, October 29, 2026
+  location: Budapest, Hungary
+  panelists:
+  - name: Sina Zarrieß
+    institution: University of Bielefeld
+  - name: Carolin Lawrence
+    institution: NEC Laboratories Europe
+  - name: Amin Shabani
+    institution: RBC Borealis
+  - name: Dirk Hovy
+    institution: Bocconi University
+  - name: Krisztian Balog
+    institution: University of Stavanger, Google DeepMind

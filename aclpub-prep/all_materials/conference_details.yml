@@ -1,0 +1,25 @@
+book_title: 'Proceedings of the 1st Workshop on Grounding Language Models: Learning
+  Faithfully and Efficiently (GroundLM 2026)'
+event_name: 'The 1st Workshop on Grounding Language Models: Learning Faithfully and
+  Efficiently'
+cover_subtitle: Proceedings of the Workshop
+anthology_venue_id: GroundLM
+start_date: 2026-10-29
+end_date: 2026-10-29
+isbn: 979-8-89176-478-1
+location: Budapest, Hungary
+editors:
+- first_name: Yimu
+  last_name: Wang
+- first_name: Yee Man
+  last_name: Choi
+- first_name: Di
+  last_name: Wu
+- first_name: Siqi
+  last_name: Ouyang
+- first_name: Mozhgan Nasr
+  last_name: Azadani
+- first_name: Yi R. (May)
+  last_name: Fung
+publisher: Association for Computational Linguistics
+volume_name: '1'
