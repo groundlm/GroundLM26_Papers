@@ -1,0 +1,94 @@
+name: Build GroundLM proceedings
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Compile and package proceedings
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-lang-all \
+            texlive-bibtex-extra \
+            poppler-utils
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Download official aclpub2
+        run: git clone --depth 1 https://github.com/rycolab/aclpub2.git "$RUNNER_TEMP/aclpub2"
+
+      - name: Install aclpub2 dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # PyYAML 5.3.1 is pinned by aclpub2 and needs the pre-3.0 Cython
+          # build helper on older Python versions.
+          python -m pip install "Cython<3"
+          python -m pip install -r "$RUNNER_TEMP/aclpub2/requirements.txt"
+
+      - name: Verify excluded paper
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+
+          path = Path("aclpub-prep/all_materials/papers.yml")
+          papers = yaml.safe_load(path.read_text())
+          ids = {str(p["id"]).zfill(3) for p in papers}
+          if "008" in ids:
+              raise SystemExit("Paper 008 must be excluded from papers.yml")
+          print(f"Proceedings input contains {len(papers)} papers; 008 is excluded.")
+          PY
+
+      - name: Generate proceedings with aclpub2
+        env:
+          PYTHONPATH: ${{ runner.temp }}/aclpub2
+        run: |
+          rm -rf aclpub-prep/output build
+          python "$RUNNER_TEMP/aclpub2/bin/generate" \
+            aclpub-prep/all_materials \
+            --proceedings \
+            --overwrite \
+            --nopax \
+            --outdir aclpub-prep/output
+
+      - name: Verify generated proceedings
+        run: |
+          test -s build/front_matter.pdf
+          test -s build/proceedings.pdf
+          test -s aclpub-prep/output/proceedings.pdf
+          pdfinfo aclpub-prep/output/proceedings.pdf | grep -E '^(Pages|File size):'
+
+      - name: Package aclpub2 output
+        run: |
+          tar -czf aclpub-prep/groundlm-proceedings.tgz \
+            -C aclpub-prep output
+          ls -lh aclpub-prep/groundlm-proceedings.tgz
+
+      - name: Upload downloadable package
+        uses: actions/upload-artifact@v4
+        with:
+          name: groundlm-proceedings
+          path: aclpub-prep/groundlm-proceedings.tgz
+          if-no-files-found: error
+          retention-days: 30
