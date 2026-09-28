@@ -4236,6 +4236,109 @@
     claims against committed artifacts.'
   archival: true
   decision: Tasks
+- id: 093
+  authors:
+  - dblp_id: https://dblp.org/pid/286/5557
+    first_name: Xuye
+    google_scholar_id: https://scholar.google.ca/citations?view_op=search_authors&mauthors=xuyeliu&hl=en&oi=ao
+    homepage: https://xuyeliu.github.io/
+    institution: University of Waterloo
+    last_name: Liu
+    name: Xuye Liu
+    semantic_scholar_id: https://www.semanticscholar.org/author/Xuye-Liu/14910591
+    username: ~Xuye_Liu1
+  - dblp_id: https://dblp.org/pid/140/7766
+    first_name: Yimu
+    google_scholar_id: https://scholar.google.com/citations?user=TV2vnN8AAAAJ&hl=en
+    homepage: https://yimuwangcs.github.io
+    institution: University of Waterloo
+    last_name: Wang
+    name: Yimu Wang
+    semantic_scholar_id: https://www.semanticscholar.org/author/Yimu-Wang/2259866135
+    username: ~Yimu_Wang1
+  - dblp_id: https://dblp.org/pid/172/7638-10
+    first_name: Peng
+    institution: University of Waterloo
+    last_name: Shi
+    name: Peng Shi
+  - dblp_id: https://dblp.org/pid/122/2421-4
+    first_name: Bo
+    google_scholar_id: https://scholar.google.com/citations?user=1D4gVmIAAAAJ&hl=en
+    homepage: https://xueb1996.github.io/
+    institution: City University of Hong Kong
+    last_name: Xue
+    name: Bo Xue
+    orcid: https://orcid.org/0000-0002-7295-4853
+    username: ~Bo_Xue1
+  - dblp_id: https://dblp.org/pid/382/1609
+    first_name: Xiangrui
+    institution: University of Waterloo
+    last_name: Ke
+    name: Xiangrui Ke
+    orcid: https://orcid.org/0000-0003-1614-5688
+  - dblp_id: https://dblp.org/pid/389/7464
+    first_name: Songcheng
+    homepage: https://ondinemrcai.github.io/
+    institution: University of Waterloo
+    last_name: Cai
+    name: Songcheng Cai
+    username: ~Songcheng_Cai1
+  - dblp_id: https://dblp.org/pid/371/4624
+    first_name: Kath
+    google_scholar_id: https://scholar.google.ca/citations?user=4ER3KcgAAAAJ&hl=en
+    institution: University of Waterloo
+    last_name: Choi
+    name: Kath Choi
+    orcid: https://orcid.org/0009-0002-7892-9795
+    semantic_scholar_id: https://www.semanticscholar.org/author/Yee-Man-Choi/2288054771
+    username: ~Yee_Man_Choi1
+  - first_name: Di
+    homepage: https://moore3930.github.io/
+    institution: University of Amsterdam
+    last_name: Wu
+    name: Di Wu
+  - dblp_id: https://dblp.org/pid/194/2512
+    first_name: Freda
+    google_scholar_id: https://scholar.google.com/citations?user=jkDd-3QAAAAJ
+    homepage: https://cs.uwaterloo.ca/~fhs/
+    institution: University of Waterloo
+    last_name: Shi
+    name: Freda Shi
+    orcid: https://orcid.org/0009-0009-5697-449X
+  - dblp_id: https://dblp.org/pid/72/6806
+    first_name: Krzysztof
+    google_scholar_id: https://scholar.google.ca/citations?user=ZzCpumQAAAAJ&hl=en
+    homepage: https://uwaterloo.ca/waterloo-intelligent-systems-engineering-lab/people-profiles/krzysztof-czarnecki
+    institution: University of Waterloo
+    last_name: Czarnecki
+    name: Krzysztof Czarnecki
+    orcid: https://orcid.org/0000-0003-1642-1101
+    username: ~Krzysztof_Czarnecki1
+  attributes:
+    paper_type: short
+  file: 093.pdf
+  title: >-
+    LitTraceQA: A Benchmark for Multi-Stage Grounding and Verification in
+    Scientific Question Answering
+  abstract: >-
+    Scientific question answering is useful only when readers can recover the
+    papers and evidence behind an answer. Yet many benchmarks either provide the
+    source document or score only the final response, obscuring failures in
+    literature retrieval and evidence localization. We present LitTraceQA, a
+    literature-grounded question answering benchmark in which a system must
+    return a connected trace: canonical paper identifiers, typed evidence
+    locations, and a checkable answer. The collection contains 4,978 unique
+    questions grounded in 4,859 papers and covers tables, figures, text spans,
+    equations or algorithms, and citation contexts. Of these questions, 64.85%
+    require multiple papers; answers use multiple-choice or structured-table
+    formats; and 61.9% are missed by every memory-only challenger used during
+    construction. We describe a generate-and-ground-challenge pipeline and an
+    evaluation protocol that reports paper retrieval, evidence grounding, answer
+    correctness, and strict joint success separately. LitTraceQA therefore tests
+    whether scientific QA systems can produce answers whose provenance is
+    inspectable, rather than merely plausible.
+  archival: true
+  decision: GroundLM
   openreview_id: ls5Pbg3hmr
 - id: 082
   authors:
