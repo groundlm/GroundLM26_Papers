@@ -84,8 +84,8 @@
     homepage: https://joydajunspacecraft.github.io/YuelyuJi.github.io//
     name: Yuelyu Ji
     orcid: https://orcid.org/0000-0001-6389-5823
-  - first_name: Zian_Zheng1
-    last_name: Zian_Zheng1
+  - first_name: Zian (Andy)
+    last_name: Zheng
     institution: University of Waterloo
     openreview: ~Zian_Zheng1
 - role: Reviewers
@@ -481,10 +481,6 @@
     google_scholar_id: https://scholar.google.com/citations?user=lod_OEIAAAAJ&hl=en
     middle_name: Ahmad
     name: Rajeel Ahmad Ansari
-  - first_name: Robert_Sneiderman1
-    last_name: Robert_Sneiderman1
-    institution: Independent
-    openreview: ~Robert_Sneiderman1
   - first_name: Rohith
     last_name: Bellibatlu
     institution: Independent Living Systems
@@ -493,8 +489,8 @@
     middle_name: Reddy
     name: Rohith Reddy Bellibatlu
     orcid: https://orcid.org/0009-0003-6083-0364
-  - first_name: SHASHI_BHUSHAN_TN1
-    last_name: SHASHI_BHUSHAN_TN1
+  - first_name: Shashi Bhushan Tyamagondlu
+    last_name: Nagabhushan
     institution: Dialpad
     openreview: ~SHASHI_BHUSHAN_TN1
   - first_name: Sachin
@@ -631,8 +627,8 @@
     openreview: ~Xiankun_Lin1
     name: Xiankun Lin
     orcid: https://orcid.org/0009-0004-3003-9480
-  - first_name: Xu_Zixiang1
-    last_name: Xu_Zixiang1
+  - first_name: Zixiang
+    last_name: Xu
     institution: University of Southern California
     openreview: ~Xu_Zixiang1
   - first_name: Yash
@@ -703,8 +699,8 @@
     openreview: ~Zhan_Shi15
     google_scholar_id: https://scholar.google.com/citations?user=ZRCQCvgAAAAJ&hl=en&oi=sra
     name: Zhan Shi
-  - first_name: Zian_Zheng1
-    last_name: Zian_Zheng1
+  - first_name: Zian (Andy)
+    last_name: Zheng
     institution: University of Waterloo
     openreview: ~Zian_Zheng1
   - first_name: Zida
@@ -720,3 +716,68 @@
     institution: Friendzy LLC
     openreview: ~prashanth_Jamalapurapu1
     name: prashanth Jamalapurapu
+  - dblp_id: https://dblp.org/pid/220/3224
+    first_name: Amlaan
+    google_scholar_id: https://scholar.google.com/citations?user=6zkTbN4AAAAJ&hl=en
+    homepage: https://amlaanbhoi.com
+    institution: Apple
+    last_name: Bhoi
+    name: Amlaan Bhoi
+    orcid: https://orcid.org/0000-0002-3299-4375
+    semantic_scholar_id: https://www.semanticscholar.org/author/Amlaan-Bhoi/41049768
+    username: ~Amlaan_Bhoi1
+  - first_name: Rob
+    google_scholar_id: https://scholar.google.ca/citations?hl=en&user=rvkcZ5IAAAAJ
+    homepage: https://robbysneiderman.com
+    institution: Independent and Statistics Canada
+    last_name: Sneiderman
+    name: Rob Sneiderman
+    username: ~Rob_Sneiderman1
+  - first_name: Mohan
+    google_scholar_id: https://scholar.google.com/citations?user=hQHV7hQAAAAJ&hl=en
+    institution: LinkedIn
+    last_name: Bhambhani
+    middle_name: Premchand
+    name: Mohan Premchand Bhambhani
+    semantic_scholar_id: https://www.semanticscholar.org/author/Mohan-Bhambhani/88797911
+    username: ~Mohan_Premchand_Bhambhani1
+  - first_name: Riddhimaan
+    google_scholar_id: https://scholar.google.com/citations?user=xttQECoAAAAJ&hl=en&authuser=1
+    homepage: https://www.riddhimaan.com/
+    last_name: Senapati
+    name: Riddhimaan Senapati
+    username: ~Riddhimaan_Senapati1
+  - first_name: Yihang
+    google_scholar_id: https://scholar.google.com/citations?user=cjYJkIgAAAAJ&hl=en
+    institution: Georgia Institute of Technology
+    last_name: Chen
+    name: Yihang Chen
+    orcid: https://orcid.org/0009-0008-8340-4452
+    username: ~Yihang_Chen15
+  - first_name: Atta
+    google_scholar_id: https://scholar.google.com/citations?user=ejT9Hw4AAAAJ&hl=en
+    last_name: Asad
+    middle_name: UL
+    name: ATTA UL ASAD
+    username: ~ATTA_UL_ASAD1
+  - first_name: Nishi
+    google_scholar_id: https://scholar.google.com/citations?user=7BK9VOkAAAAJ&hl=en
+    institution: University of Southern California
+    last_name: Doshi
+    name: Nishi Doshi
+    orcid: https://orcid.org/0009-0007-8148-4834
+    username: ~Nishi_Doshi2
+  - first_name: Yan
+    institution: Pennsylvania State University
+    last_name: Sun
+    name: Yan Sun
+    username: ~Yan_Sun15
+  - first_name: Zixiang
+    google_scholar_id: https://scholar.google.com/citations?hl=zh-CN&user=lPLP6H8AAAAJ
+    homepage: https://xzx34.github.io/
+    institution: University of Southern California
+    last_name: Xu
+    name: Zixiang Xu
+    orcid: https://orcid.org/0009-0008-6672-004X
+    semantic_scholar_id: https://www.semanticscholar.org/author/Zixiang-Xu/2343776295
+    username: ~Zixiang_Xu1

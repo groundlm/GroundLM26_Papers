@@ -85,10 +85,22 @@ jobs:
             -C aclpub-prep output
           ls -lh aclpub-prep/groundlm-proceedings.tgz
 
-      - name: Upload downloadable package
+      - name: Save generated proceedings as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: groundlm-proceedings
-          path: aclpub-prep/groundlm-proceedings.tgz
+          name: groundlm-proceedings-${{ github.run_number }}
+          path: |
+            aclpub-prep/groundlm-proceedings.tgz
+            aclpub-prep/output/
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 90
+
+      - name: Add download instructions to run summary
+        run: |
+          {
+            echo "## GroundLM proceedings build"
+            echo
+            echo "The generated package and the complete aclpub2 output were saved as the artifact \`groundlm-proceedings-${{ github.run_number }}\`."
+            echo
+            echo "Open the workflow run page and download that artifact. The package is \`aclpub-prep/groundlm-proceedings.tgz\`."
+          } >> "$GITHUB_STEP_SUMMARY"
