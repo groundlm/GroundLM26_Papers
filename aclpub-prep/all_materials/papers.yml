@@ -4905,3 +4905,63 @@
     systems on the main task.'
   archival: true
   decision: Tasks
+# - id: 008
+#   authors:
+#   - first_name: R S
+#     last_name: Pavithra
+#     name: R S Pavithra
+#     institution: Undergrad student, Artificial Intelligence, Anurag University
+#   attributes:
+#     paper_type: long
+#   file: 008.pdf
+#   title: 'Do Language Models Honor Their Own Definitions? Measuring Definition–Application Consistency'
+#   abstract: >-
+#     Large language models (LLMs) are increasingly deployed in multi-turn settings
+#     where a definition introduced in one turn should remain binding in subsequent
+#     reasoning. Little is known, however, about whether models actually respect such
+#     self-generated constraints. We introduce definition–application consistency:
+#     an evaluation framework that measures whether a model applies a definition it
+#     has previously generated when answering a subsequent, logically entailed query.
+#     Using a manually verified dataset of 1,000 pairs across six semantic domains,
+#     complemented by a 10,000-pair automatically generated set for scale analysis,
+#     we evaluate four contemporary LLMs spanning proprietary and open-weight families.
+#     Large models are largely consistent on average, but residual failures concentrate
+#     in procedural, scientific, and social-ethical concepts and grow under adversarial
+#     definitions and longer conversational contexts. A definition-grounded prompting
+#     intervention intended to enforce semantic commitments counterintuitively reduces
+#     consistency and increases hedging across models. This negative result suggests
+#     that semantic commitments induced through natural language are not reliably
+#     treated as binding constraints.
+#   archival: true
+#   decision: Findings
+#   openreview_id: 47QayY5613
+- id: 008
+  authors:
+  - first_name: R S
+    last_name: Pavithra
+    name: R S Pavithra
+    institution: Undergrad student, Artificial Intelligence, Anurag University
+  attributes:
+    paper_type: long
+  file: 008.pdf
+  title: 'Do Language Models Honor Their Own Definitions? Measuring Definition–Application Consistency'
+  abstract: >-
+    Large language models (LLMs) are increasingly deployed in multi-turn settings
+    where a definition introduced in one turn should remain binding in subsequent
+    reasoning. Little is known, however, about whether models actually respect such
+    self-generated constraints. We introduce definition–application consistency:
+    an evaluation framework that measures whether a model applies a definition it
+    has previously generated when answering a subsequent, logically entailed query.
+    Using a manually verified dataset of 1,000 pairs across six semantic domains,
+    complemented by a 10,000-pair automatically generated set for scale analysis,
+    we evaluate four contemporary LLMs spanning proprietary and open-weight families.
+    Large models are largely consistent on average, but residual failures concentrate
+    in procedural, scientific, and social-ethical concepts and grow under adversarial
+    definitions and longer conversational contexts. A definition-grounded prompting
+    intervention intended to enforce semantic commitments counterintuitively reduces
+    consistency and increases hedging across models. This negative result suggests
+    that semantic commitments induced through natural language are not reliably
+    treated as binding constraints.
+  archival: true
+  decision: Findings
+  openreview_id: 47QayY5613
