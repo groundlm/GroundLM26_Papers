@@ -4446,25 +4446,16 @@
   openreview_id: i4eqjouBvv
 - id: 084
   authors:
-  - first_name: ''
-    last_name: Zhiruizhu
-    name: zhiruizhu
+  - first_name: Zhirui
+    last_name: Zhu
+    name: Zhirui Zhu
     username: ~zhiruizhu1
   attributes:
     paper_type: long
   file: 084.pdf
   title: 'ThousandOfWind at GroundLM 2026 Shared Task: An Auditable Hybrid Pipeline
     for LitTraceQA'
-  abstract: We describe the ThousandOfWind system for LitTraceQA, the GroundLM 2026
-    shared task on evidence-grounded question answering over scientific literature.
-    The system combines lexical and dense paper retrieval, query-derived source planning,
-    manifestation-aware PDF localization, structural answer extraction, and guarded
-    local Qwen generation. On the 55-query public development set, the final audited
-    configuration obtains 0.720 Paper F1, 0.551 Evidence F1, 0.902 multiple-choice
-    accuracy, 0.846 free-form exact match, and 0.791 table row F1. The submitted input-only
-    run covers all 71 test queries. We select the final runtime through versioned
-    ablations, multi-document generalization probes, strict leakage review, and artifacts-only
-    preservation of rejected experiments.
+  abstract: We present ThousandOfWind's hybrid system for GroundLM 2026 LitTraceQA, combining traditional retrieval-augmented generation (RAG) with code-agent research. Agents design question-specific search scripts, revise them as evidence emerges, and reconcile their findings with RAG candidates. The required-test configuration starts with independent research and accepts subsequent revisions through field-level confidence gates and table-structure checks. Using GPT-5.6 Terra in GitHub Copilot CLI, the system raises the 71-question test composite from 0.3567 to 0.7374 and multiple-choice accuracy from 18/50 to 50/50. Macro table cell accuracy reaches 0.2698, leaving structured assembly as the main bottleneck. Our analysis explains the limits of row-key-preserving repair and motivates source-supported structural editing.
   archival: true
   decision: Tasks
   openreview_id: dLSqCYXlw9
